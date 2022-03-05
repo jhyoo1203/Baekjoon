@@ -1,2 +1,2 @@
 language = "python3"
-run = "bash"
+run = "python3 array/4344.py"
