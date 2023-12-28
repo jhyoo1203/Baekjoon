@@ -4,19 +4,23 @@ input = sys.stdin.readline
 
 N = int(input())
 
-jinju_charge = None
-max_charge = float("-inf")
+costList = [0] * 1001
+jinju_charge = 0
 cnt = 0
 
 for _ in range(N):
-    d, c = input().strip().split()
-    current_charge = int(c)
+    d, c = map(str, input().split())
+    cost = int(c)
 
     if d == "jinju":
-        jinju_charge = current_charge
-    elif current_charge > max_charge:
-        max_charge = current_charge
+        jinju_charge = cost
+    elif cost > 1000:
         cnt += 1
+    else:
+        costList[cost] += 1
+
+for i in range(jinju_charge + 1, 1001):
+    cnt += costList[i]
 
 print(jinju_charge)
 print(cnt)
